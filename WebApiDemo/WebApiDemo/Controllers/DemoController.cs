@@ -24,10 +24,7 @@ namespace WebApiDemo.Controllers
         // GET: api/Demo/5
         public EmpDataModel Get(int id)
         {
-            var item = _Repo.Get(id);
-            if (item == null)
-                BadRequest("Item Not Found");
-            return item;
+            return _Repo.Get(id);
         }
 
         // POST: api/Demo

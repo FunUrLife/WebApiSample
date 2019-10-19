@@ -11,14 +11,11 @@ namespace WebApiDemo.Repositories
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
-        private const string ConnectionString = "your connection string here";
+        private const string ConnectionString = "Server=localhost;Port=8818;Uid=search;Pwd=tech;persistsecurityinfo=True;Allow User Variables=True;SslMode=none;";
 
         protected readonly IDbConnection connection;
 
-        public BaseRepository()
-        {
-
-        }
+        public BaseRepository() => connection = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString);
 
         public abstract void Delete(T item);
         public abstract IEnumerable<T> Find(Expression<Func<T, bool>> query);

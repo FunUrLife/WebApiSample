@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace WebApiDemo
@@ -9,6 +10,8 @@ namespace WebApiDemo
     {
         public static void Register(HttpConfiguration config)
         {
+            //Replace default Negotiator here
+            config.Services.Replace(typeof(IContentNegotiator), new JsonContentNegotiator(new JsonMediaTypeFormatter()));
             // Web API 設定和服務
 
             // Web API 路由

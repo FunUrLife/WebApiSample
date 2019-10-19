@@ -23,12 +23,12 @@ namespace WebApiDemo.Repositories
 
         public override IEnumerable<EmpDataModel> Get()
         {
-            return connection.ExecuteSQL<EmpDataModel>("DELETE FROM CENTER.SYS_EMP", null);
+            return connection.ExecuteSQL<EmpDataModel>("SELECT * FROM CENTER.SYS_EMP", null);
         }
 
         public override EmpDataModel Get(int id)
         {
-            return connection.ExecuteSQL<EmpDataModel>("DELETE FROM CENTER.SYS_EMP WHERE ID = @ID", new { id }).FirstOrDefault();
+            return connection.ExecuteSQL<EmpDataModel>("SELECT * FROM CENTER.SYS_EMP WHERE ID = @ID", new { id }).FirstOrDefault();
         }
 
         public override void Post(EmpDataModel item)

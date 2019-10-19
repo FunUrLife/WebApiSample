@@ -6,7 +6,7 @@ namespace WebApiDemo.Tests
     public class DemoRepoUnitTest
     {
         [TestMethod]
-        public void Test_Get()
+        public void Test_Get_Pass()
         {
             const int ID_RESULT = 1;
 
@@ -19,6 +19,19 @@ namespace WebApiDemo.Tests
             Assert.AreEqual(expected.ID, actual.ID);
             Assert.AreEqual(expected.NAME, actual.NAME);
             Assert.AreEqual(expected.NO, actual.NO);
+        }
+
+        [TestMethod]
+        public void Test_Get_Fail()
+        {
+            const int ID_RESULT = int.MaxValue;
+
+            // Arrange
+            var _Repo = new Repositories.DemoRepository();
+            // Act
+            var actual = _Repo.Get(ID_RESULT);
+            // Assert
+            Assert.AreEqual(null, actual);
         }
     }
 }

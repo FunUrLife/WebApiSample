@@ -9,7 +9,7 @@
         /// <summary>
         /// 編號
         /// </summary>
-        public string PSD { get; set; }
+        public string NO { get; set; }
         /// <summary>
         /// 員工名稱
         /// </summary>
